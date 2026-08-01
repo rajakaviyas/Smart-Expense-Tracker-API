@@ -77,7 +77,7 @@ Before running the project, make sure the following are installed:
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/rajakaviyas/Smart-Expense-Tracker-API.git
 ```
 
 Navigate to the project folder:
@@ -101,6 +101,7 @@ Start the Spring Boot application:
 ```bash
 mvn spring-boot:run
 ```
+
 
 The application starts at:
 
