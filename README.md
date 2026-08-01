@@ -1,6 +1,6 @@
 # Smart Expense Tracker API
 
-## Overview
+## Overview 
 
 Smart Expense Tracker API is a Java 8 and Spring Boot REST API application for managing personal expenses.
 
