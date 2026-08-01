@@ -8,22 +8,24 @@ The application allows users to add, view, filter, search, calculate totals, and
 
 Expense data is stored in memory while the application is running.
 
+---
+
 ## Features
 
 ### Expense Management
 
 * Add a new expense
 * View all expenses
-* Delete expenses
+* Delete an expense
 * Filter expenses by category
 * Search expenses by title
 
 ### Expense Analytics
 
-* Calculate overall expense total
-* Calculate total for a specific category
+* Calculate the overall expense total
+* Calculate the total for a specific category
 * View totals grouped by category
-* Monthly expense summary with:
+* Monthly expense summary including:
 
   * Total expense amount
   * Expense count
@@ -31,8 +33,10 @@ Expense data is stored in memory while the application is running.
 
 ### API Documentation
 
-* Swagger UI documentation
-* OpenAPI JSON documentation
+* Swagger UI
+* OpenAPI JSON Documentation
+
+---
 
 ## Tech Stack
 
@@ -41,19 +45,32 @@ Expense data is stored in memory while the application is running.
 * Spring Web
 * Springdoc OpenAPI
 * Maven
-* JUnit Testing
+* JUnit
+
+---
 
 ## Project Structure
 
-```
+```text
 Smart Expense Tracker API/
 │
-├── README.md
-├── AI_NOTES.md
 ├── src/
-│
-└── tests/
+├── .gitignore
+├── AI_NOTES.md
+├── README.md
+└── pom.xml
 ```
+
+---
+
+## Prerequisites
+
+Before running the project, make sure the following are installed:
+
+* Java 8 or later
+* Apache Maven
+
+---
 
 ## Installation
 
@@ -63,15 +80,21 @@ Clone the repository:
 git clone <repository-url>
 ```
 
-Navigate into the project:
+Navigate to the project folder:
 
 ```bash
 cd "Smart Expense Tracker API"
 ```
 
-## Run the Application
+Install the project dependencies:
 
-Make sure Maven is installed.
+```bash
+mvn clean install
+```
+
+---
+
+## Run the Application
 
 Start the Spring Boot application:
 
@@ -79,13 +102,15 @@ Start the Spring Boot application:
 mvn spring-boot:run
 ```
 
-The application will start at:
+The application starts at:
 
-```
+```text
 http://localhost:8080
 ```
 
-Open the URL in a browser to access the dashboard.
+Open the above URL in a browser to access the web dashboard.
+
+---
 
 ## Run Tests
 
@@ -95,56 +120,59 @@ Run the test suite using:
 mvn test
 ```
 
-Test Result:
+Expected result:
 
-```
+```text
 Tests run: 2
 Failures: 0
 ```
 
+---
+
 ## API Endpoints
 
-| Method | Endpoint                                          | Purpose                        |
-| ------ | ------------------------------------------------- | ------------------------------ |
-| POST   | `/api/expenses`                                   | Add an expense                 |
-| GET    | `/api/expenses`                                   | List all expenses              |
-| GET    | `/api/expenses?category=Food`                     | Filter expenses by category    |
-| GET    | `/api/expenses?search=grocer`                     | Search expenses by title       |
-| GET    | `/api/expenses/total`                             | Get overall total              |
-| GET    | `/api/expenses/total?category=Food`               | Get total for one category     |
-| GET    | `/api/expenses/totals-by-category`                | Get totals grouped by category |
-| GET    | `/api/expenses/summary/monthly?year=2026&month=7` | Monthly expense summary        |
-| DELETE | `/api/expenses/{id}`                              | Delete an expense              |
+| Method | Endpoint                                          | Purpose                           |
+| ------ | ------------------------------------------------- | --------------------------------- |
+| POST   | `/api/expenses`                                   | Add a new expense                 |
+| GET    | `/api/expenses`                                   | List all expenses                 |
+| GET    | `/api/expenses?category=Food`                     | Filter expenses by category       |
+| GET    | `/api/expenses?search=grocer`                     | Search expenses by title          |
+| GET    | `/api/expenses/total`                             | Get overall expense total         |
+| GET    | `/api/expenses/total?category=Food`               | Get total for a specific category |
+| GET    | `/api/expenses/totals-by-category`                | Get totals grouped by category    |
+| GET    | `/api/expenses/summary/monthly?year=2026&month=7` | Get monthly expense summary       |
+| DELETE | `/api/expenses/{id}`                              | Delete an expense                 |
+
+---
 
 ## Swagger / OpenAPI Documentation
 
 Swagger UI:
 
-```
+```text
 http://localhost:8080/swagger-ui.html
 ```
 
 OpenAPI JSON:
 
-```
+```text
 http://localhost:8080/v3/api-docs
 ```
 
-## Add an Expense Example
+---
 
-Request:
+## Example Request
 
-```
+### Add an Expense
+
+**Request**
+
+```http
 POST /api/expenses
+Content-Type: application/json
 ```
 
-Content-Type:
-
-```
-application/json
-```
-
-Body:
+**Request Body**
 
 ```json
 {
@@ -155,11 +183,14 @@ Body:
 }
 ```
 
-Validation:
+### Validation Rules
 
-* Title, amount, category, and date are required.
-* Amount must be greater than zero.
-* Date format should be `yyyy-MM-dd`.
+* `title` is required.
+* `amount` is required and must be greater than zero.
+* `category` is required.
+* `date` is required and must follow the `yyyy-MM-dd` format.
+
+---
 
 ## Optional Features Implemented
 
@@ -167,9 +198,12 @@ Validation:
 * Monthly Summary Endpoint
 * Swagger/OpenAPI Documentation
 
+---
+
 ## Future Improvements
 
-* Database integration
-* User authentication
+* Persistent database storage
+* User authentication and authorization
 * Docker support
 * Cloud deployment
+
