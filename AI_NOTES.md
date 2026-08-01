@@ -11,7 +11,7 @@ I used OpenAI Codex as an AI assistant during the development of this project.
   * Expense Search API
   * Monthly Expense Summary API
   * Swagger/OpenAPI documentation
-* I integrated the generated code into the project and reviewed the implementation.
+* I integrated the generated code into the project, reviewed the implementation, configured the application, and verified that it met the assignment requirements.
 
 ## Validation and Changes
 
