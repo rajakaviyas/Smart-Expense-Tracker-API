@@ -1,43 +1,152 @@
 # Smart Expense Tracker API
 
-Java 8 / Spring Boot REST API for managing personal expenses. Data is held in memory while the application is running.
+## Overview
 
-The application also includes a responsive web dashboard. After starting the app, open [http://localhost:8080](http://localhost:8080) in a browser to add, filter, total, and delete expenses.
+Smart Expense Tracker API is a Java 8 and Spring Boot REST API application for managing personal expenses.
 
-## Run
+The application allows users to add, view, filter, search, calculate totals, and delete expenses. It also includes a responsive web dashboard for interacting with expense data.
 
-Install Maven, then run:
+Expense data is stored in memory while the application is running.
 
-```powershell
+## Features
+
+### Expense Management
+
+* Add a new expense
+* View all expenses
+* Delete expenses
+* Filter expenses by category
+* Search expenses by title
+
+### Expense Analytics
+
+* Calculate overall expense total
+* Calculate total for a specific category
+* View totals grouped by category
+* Monthly expense summary with:
+
+  * Total expense amount
+  * Expense count
+  * Category-wise totals
+
+### API Documentation
+
+* Swagger UI documentation
+* OpenAPI JSON documentation
+
+## Tech Stack
+
+* Java 8
+* Spring Boot
+* Spring Web
+* Springdoc OpenAPI
+* Maven
+* JUnit Testing
+
+## Project Structure
+
+```
+Smart Expense Tracker API/
+│
+├── README.md
+├── AI_NOTES.md
+├── src/
+│
+└── tests/
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Navigate into the project:
+
+```bash
+cd "Smart Expense Tracker API"
+```
+
+## Run the Application
+
+Make sure Maven is installed.
+
+Start the Spring Boot application:
+
+```bash
 mvn spring-boot:run
 ```
 
-The service starts at `http://localhost:8080`.
+The application will start at:
 
-## Endpoints
+```
+http://localhost:8080
+```
 
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| POST | `/api/expenses` | Add an expense |
-| GET | `/api/expenses` | List all expenses |
-| GET | `/api/expenses?category=Food` | Filter by category |
-| GET | `/api/expenses?search=grocer` | Search expenses by title |
-| GET | `/api/expenses/total` | Overall total |
-| GET | `/api/expenses/total?category=Food` | Total for one category |
-| GET | `/api/expenses/totals-by-category` | Totals grouped by category |
-| GET | `/api/expenses/summary/monthly?year=2026&month=7` | Total, count, and category totals for a month |
-| DELETE | `/api/expenses/{id}` | Delete an expense |
+Open the URL in a browser to access the dashboard.
 
-## API documentation
+## Run Tests
 
-Swagger UI is available at [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html). The OpenAPI JSON document is available at `/v3/api-docs`.
+Run the test suite using:
 
-### Add an expense
+```bash
+mvn test
+```
 
-```http
+Test Result:
+
+```
+Tests run: 2
+Failures: 0
+```
+
+## API Endpoints
+
+| Method | Endpoint                                          | Purpose                        |
+| ------ | ------------------------------------------------- | ------------------------------ |
+| POST   | `/api/expenses`                                   | Add an expense                 |
+| GET    | `/api/expenses`                                   | List all expenses              |
+| GET    | `/api/expenses?category=Food`                     | Filter expenses by category    |
+| GET    | `/api/expenses?search=grocer`                     | Search expenses by title       |
+| GET    | `/api/expenses/total`                             | Get overall total              |
+| GET    | `/api/expenses/total?category=Food`               | Get total for one category     |
+| GET    | `/api/expenses/totals-by-category`                | Get totals grouped by category |
+| GET    | `/api/expenses/summary/monthly?year=2026&month=7` | Monthly expense summary        |
+| DELETE | `/api/expenses/{id}`                              | Delete an expense              |
+
+## Swagger / OpenAPI Documentation
+
+Swagger UI:
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+OpenAPI JSON:
+
+```
+http://localhost:8080/v3/api-docs
+```
+
+## Add an Expense Example
+
+Request:
+
+```
 POST /api/expenses
-Content-Type: application/json
+```
 
+Content-Type:
+
+```
+application/json
+```
+
+Body:
+
+```json
 {
   "title": "Groceries",
   "amount": 42.50,
@@ -46,15 +155,21 @@ Content-Type: application/json
 }
 ```
 
-`title`, `amount`, `category`, and `date` are required. Amount must be greater than zero; dates use `yyyy-MM-dd`.
+Validation:
 
-## Docker
+* Title, amount, category, and date are required.
+* Amount must be greater than zero.
+* Date format should be `yyyy-MM-dd`.
 
-Build and run the complete web application (frontend and API) in a container:
+## Optional Features Implemented
 
-```powershell
-docker build -t smart-expense-tracker .
-docker run --rm -p 8080:8080 smart-expense-tracker
-```
+* Expense Search
+* Monthly Summary Endpoint
+* Swagger/OpenAPI Documentation
 
-Open `http://localhost:8080` after the container starts.
+## Future Improvements
+
+* Database integration
+* User authentication
+* Docker support
+* Cloud deployment
